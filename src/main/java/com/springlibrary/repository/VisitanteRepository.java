@@ -12,7 +12,7 @@ public interface VisitanteRepository extends JpaRepository<VisitanteEntity, Long
 
     @Transactional
     @Modifying
-    @Query("UPDATE VisitanteEntity V SET v.nome_visitante = :nome, v.telefone_visitante = :telefone WHERE v.id_visitante = :id")
+    @Query("UPDATE VisitanteEntity v SET v.nome_visitante = :nome, v.telefone_visitante = :telefone WHERE v.id_visitante = :id")
     void atualizarVisitante(Long id, String nome, String telefone);
 
 }
