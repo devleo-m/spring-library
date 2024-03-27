@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.jdbc.hibernate.ddl-auto",
+      "type": "java.lang.String",
+      "description": "Description for spring.jdbc.hibernate.ddl-auto."
+  }
+] }
