@@ -17,17 +17,17 @@ public class VisitanteServiceImpl implements VisitanteService {
     }
 
     @Override
-    public VisitanteEntity criarUsuario(VisitanteEntity visitante) {
+    public VisitanteEntity criarVisitante(VisitanteEntity visitante) {
         return visitanteRepository.save(visitante);
     }
 
     @Override
-    public VisitanteEntity buscarUsuarioPorId(Long id) {
+    public VisitanteEntity buscarVisitantePorId(Long id) {
         return visitanteRepository.findById(id).orElse(null);
     }
 
     @Override
-    public VisitanteEntity atualizarUsuario(Long id, VisitanteEntity visitante) {
+    public VisitanteEntity atualizarVisitante(Long id, VisitanteEntity visitante) {
         if (visitanteRepository.existsById(id)){
             visitante.setId_visitante(id);
             return visitanteRepository.save(visitante);
@@ -36,12 +36,12 @@ public class VisitanteServiceImpl implements VisitanteService {
     }
 
     @Override
-    public void excluirUsuario(Long id) {
+    public void excluirVisitante(Long id) {
         visitanteRepository.deleteById(id);
     }
 
     @Override
-    public List<VisitanteEntity> listarUsuarios() {
+    public List<VisitanteEntity> listarVisitantes() {
         return visitanteRepository.findAll();
     }
 }

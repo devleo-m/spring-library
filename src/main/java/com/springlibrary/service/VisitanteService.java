@@ -5,13 +5,13 @@ import com.springlibrary.entity.VisitanteEntity;
 import java.util.List;
 
 public interface VisitanteService {
-    VisitanteEntity criarUsuario(VisitanteEntity visitante);
+    VisitanteEntity criarVisitante(VisitanteEntity visitante);
 
-    VisitanteEntity buscarUsuarioPorId(Long id);
+    VisitanteEntity buscarVisitantePorId(Long id);
 
-    VisitanteEntity atualizarUsuario(Long id, VisitanteEntity visitante);
+    VisitanteEntity atualizarVisitante(Long id, VisitanteEntity visitante);
 
-    void excluirUsuario(Long id);
+    void excluirVisitante(Long id);
 
-    List<VisitanteEntity> listarUsuarios();
+    List<VisitanteEntity> listarVisitantes();
 }
