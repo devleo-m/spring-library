@@ -1,5 +1,6 @@
 package com.springlibrary.service.impl;
 
+import com.springlibrary.entity.LivroEntity;
 import com.springlibrary.entity.VisitanteEntity;
 import com.springlibrary.repository.VisitanteRepository;
 import com.springlibrary.service.VisitanteService;
@@ -26,13 +27,26 @@ public class VisitanteServiceImpl implements VisitanteService {
         return visitanteRepository.findById(id).orElse(null);
     }
 
+//    @Override
+//    public VisitanteEntity atualizarVisitante(Long id, VisitanteEntity visitante) {
+//        if (visitanteRepository.existsById(id)){
+//            visitante.setId_visitante(id);
+//            return visitanteRepository.save(visitante);
+//        }
+//        return null;
+//    }
     @Override
     public VisitanteEntity atualizarVisitante(Long id, VisitanteEntity visitante) {
-        if (visitanteRepository.existsById(id)){
-            visitante.setId_visitante(id);
-            return visitanteRepository.save(visitante);
+        // Verifica se o livro com o ID fornecido existe
+        VisitanteEntity visitanteExistente = visitanteRepository.findById(id).orElse(null);
+        // Se o livro existir, atualiza suas propriedades com os valores do livro fornecido
+        if (visitanteExistente != null) {
+            visitanteExistente.setNome_visitante(visitante.getNome_visitante());
+            visitanteExistente.setTelefone_visitante(visitante.getTelefone_visitante());
+            // Salva as alterações no banco de dados
+            visitanteRepository.save(visitanteExistente);
         }
-        return null;
+        return visitanteExistente;
     }
 
     @Override

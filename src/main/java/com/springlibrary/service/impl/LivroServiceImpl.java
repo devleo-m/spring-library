@@ -33,11 +33,17 @@ public class LivroServiceImpl implements LivroService {
 
     @Override
     public LivroEntity atualizarLivro(Long id, LivroEntity livro) {
-        if (livroRepository.existsById(id)) {
-            livro.setId_livro(id);
-            return livroRepository.save(livro);
+        // Verifica se o livro com o ID fornecido existe
+        LivroEntity livroExistente = livroRepository.findById(id).orElse(null);
+        // Se o livro existir, atualiza suas propriedades com os valores do livro fornecido
+        if (livroExistente != null) {
+            livroExistente.setTitulo_livro(livro.getTitulo_livro());
+            livroExistente.setAutor_livro(livro.getAutor_livro());
+            livroExistente.setAno_publicacao(livro.getAno_publicacao());
+            // Salva as alterações no banco de dados
+            livroRepository.save(livroExistente);
         }
-        return null;
+        return livroExistente;
     }
 
     @Override

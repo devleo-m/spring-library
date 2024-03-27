@@ -26,15 +26,28 @@ public class BibliotecarioServiceImpl implements BibliotecarioService {
         return bibliotecarioRepository.findById(id).orElse(null);
     }
 
+//    @Override
+//    public BibliotecarioEntity atualizarBibliotecario(Long id, BibliotecarioEntity bibliotecario) {
+//        if (bibliotecarioRepository.existsById(id)) {
+//            bibliotecario.setId_bibliotecario(id);
+//            return bibliotecarioRepository.save(bibliotecario);
+//        }
+//        return null;
+//    }
     @Override
     public BibliotecarioEntity atualizarBibliotecario(Long id, BibliotecarioEntity bibliotecario) {
-        if (bibliotecarioRepository.existsById(id)) {
-            bibliotecario.setId_bibliotecario(id);
-            return bibliotecarioRepository.save(bibliotecario);
+        // Verifica se o bibliotecário com o ID fornecido existe
+        BibliotecarioEntity bibliotecarioExistente = bibliotecarioRepository.findById(id).orElse(null);
+        // Se o bibliotecário existir, atualiza suas propriedades com os valores do bibliotecário fornecido
+        if (bibliotecarioExistente != null) {
+            bibliotecarioExistente.setNome_bibliotecario(bibliotecario.getNome_bibliotecario());
+            bibliotecarioExistente.setEmail_bibliotecario(bibliotecario.getEmail_bibliotecario());
+            bibliotecarioExistente.setSenha_bibliotecario(bibliotecario.getSenha_bibliotecario());
+            // Salva as alterações no banco de dados
+            return bibliotecarioRepository.save(bibliotecarioExistente);
         }
-        return null;
+        return null; // Retorna null se o bibliotecário não for encontrado
     }
-
     @Override
     public void excluirBibliotecario(Long id) {
         bibliotecarioRepository.deleteById(id);
