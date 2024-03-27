@@ -85,6 +85,20 @@ INSERT INTO membro (nome_membro, endereco_membro, telefone_membro) VALUES
 
 --
 
+INSERT INTO emprestimos (id_livro, id_membro, data_emprestimo, data_devolucao) VALUES
+(17, 8, '2024-03-28', '2024-04-10'),
+(7, 2, '2024-03-29', '2024-04-12'),
+(15, 1, '2024-03-30', '2024-04-14'),
+(13, 16, '2024-03-31', '2024-04-16'),
+(4, 12, '2024-04-01', '2024-04-18'),
+(9, 6, '2024-04-02', '2024-04-20'),
+(1, 3, '2024-04-03', '2024-04-22'),
+(12, 11, '2024-04-04', '2024-04-24'),
+(10, 7, '2024-04-05', '2024-04-26'),
+(6, 4, '2024-04-06', '2024-04-28');
+
+--
+
 INSERT INTO bibliotecarios (nome_bibliotecario, email_bibliotecario, senha_bibliotecario) VALUES
 ('Ana Silva', 'ana.silva@example.com', 'senha123'),
 ('José Santos', 'jose.santos@example.com', 'password'),
