@@ -15,5 +15,5 @@ public class LivroEntity implements Serializable {
     private Long id_livro;
     private String titulo_livro;
     private String autor_livro;
-    private Date ano_publicacao;
+    private Integer ano_publicacao;
 }

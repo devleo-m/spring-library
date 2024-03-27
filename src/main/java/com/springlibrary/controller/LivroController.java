@@ -2,13 +2,12 @@ package com.springlibrary.controller;
 
 import com.springlibrary.entity.LivroEntity;
 import com.springlibrary.service.LivroService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/livro")
+@RequestMapping("/api/livros")
 public class LivroController {
 
     private final LivroService livroService;
@@ -20,5 +19,10 @@ public class LivroController {
     @PostMapping()
     public LivroEntity criarLivro(@RequestBody LivroEntity livro){
         return livroService.criarLivro(livro);
+    }
+
+    @GetMapping()
+    public List<LivroEntity> listarLivros(){
+        return livroService.listarLivro();
     }
 }
