@@ -4,13 +4,13 @@ import java.util.List;
 
 public interface LivroService {
 
-    LivroService criarLivro(LivroEntity livro);
+    LivroEntity criarLivro(LivroEntity livro);
 
     List<LivroEntity> listarLivro();
 
-    LivroService buscarLivroPorId(Long id);
+    LivroEntity buscarLivroPorId(Long id);
 
-    LivroService atualizarLivro(Long id, LivroEntity livro);
+    LivroEntity atualizarLivro(Long id, LivroEntity livro);
 
     void excluirLivro(Long id);
 }
